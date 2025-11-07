@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.I.S (ADVANCED IRRIGATION SYSTEM)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #41644A;
+            color: #F8C662;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes full height */
+        }
+
+        header {
+            background-color: #213722;
+            color: #F8C662;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .container {
+            display: flex; /* Use flexbox for layout */
+            flex: 1; /* Allow the container to expand and push footer down */
+        }
+
+        .burger {
+            cursor: pointer;
+            font-size: 30px; /* Size of the burger icon */
+            padding: 15px;
+            background-color: #213722;
+            color: #F8C662;
+            border: none;
+            display: none; /* Hide by default */
+        }
+
+        nav {
+            width: 200px; /* Fixed width for the sidebar */
+            background-color: #f4f4f4;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: none; /* Hidden by default */
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center items vertically */
+            height: calc(100vh - 80px); /* Full height minus header and footer */
+            position: absolute; /* Position it absolutely */
+            left: 0; /* Align to the left */
+            top: 80px; /* Below the header */
+        }
+
+        nav.active {
+            display: flex; /* Show when active */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0; /* Remove margin for the ul */
+        }
+
+        nav ul li {
+            margin: 20px 0; /* Margin for spacing */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2em; /* Increase font size for better readability */
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50; /* Change color on hover */
+        }
+
+        .content {
+            flex: 1; /* Take remaining space */
+            padding: 20px;
+            text-align: center; /* Center text in content */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #213722;
+            color: #F8C662;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .burger {
+                display: block; /* Show burger icon on smaller screens */
+            }
+        }
+        
+        .profile-container {
+            display: flex; /* Use flexbox to arrange cards horizontally */
+            justify-content: center; /* Center the cards */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 15px; /* Increased gap between cards for better spacing */
+            margin-top: 20px; /* Space above the cards */
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            width: 150px; /* Card width */
+        }
+
+        .profile-image {
+            width: 50px; /* Image width */
+            height: 50px; /* Image height */
+            border-radius: 50%; /* Circular image */
+            object-fit: cover; /* Cover the area */
+            margin-bottom: 10px; /* Space between image and name */
+        }
+
+        .profile-name {
+            font-size: 10px;
+            color: #333;
+            margin: 0; /* Remove default margin */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A.I.S (ADVANCED IRRIGATION SYSTEM)</h1>
+        <button class="burger" onclick="toggleNav()">☰</button>
+    </header>
+
+    <div class="container">
+        <nav id="sidebar">
+            <ul>
+                <li><a href="form.html">Forms</a></li>
+                <li><a href="#services">Active Plots</a></li>
+                <li><a href="#contact">Designs</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <h3> Purpose </h3>
+            <p>The purpose of the creation of A.I.S was to create an irrigation system that incorporates algorithms such as logistic regression to determine whether or not to water plots based on its given readings. Additionally, this is also in tandem with the completion of requirements for the researchers below for their bachelor's in computer science degree.</p>
+            <h3> Created and Validated by </h3>
+
+            <h3> Researchers</h3>
+            <div class="profile-container">
+                <div class="profile-card">
+                    <img src="profile1.jpg" alt="Mujal Allyssa" class="profile-image">
+                    <h2 class="profile-name">Mujal Allyssa</h2>
+                </div>
+                <div class="profile-card">
+                    <img src="profile2.jpg" alt="Researcher 2" class="profile-image">
+                    <h2 class="profile-name">Researcher 2</h2>
+                </div>
+                <div class="profile-card">
+                    <img src="profile3.jpg" alt="Researcher 3" class="profile-image">
+                    <h2 class="profile-name">Researcher 3</h2>
+                </div>
+                <div class="profile-card">
+                    <img src="profile4.jpg" alt="Researcher 4" class="profile-image">
+                    <h2 class="profile-name">Researcher 4</h2>
+                </div>
+                <div class="profile-card">
+                    <img src="profile5.jpg" alt="Researcher 5" class="profile-image">
+                    <h2 class="profile-name">Researcher 5</h2>
+                </div>
+                <div class="profile-card">
+                    <img src="profile6.jpg" alt="Researcher 6" class="profile-image">
+                    <h2 class="profile-name">Researcher 6</h2>
+                </div>
+                <div class="profile-card">
+                    <img src="profile7.jpg" alt="Researcher 7" class="profile-image">
+                    <h2 class="profile-name">Researcher 7</h2>
+                </div>
+            </div>
+
+            <h3>Thesis Advisor</h3>
+            <div class="profile-container">
+                <div class="profile-card">
+                    <img src="profile1.jpg" alt="Mujal Allyssa" class="profile-image">
+                    <h2 class="profile-name">Prof. Alderyn Pineda</h2>
+                </div>
+            </div>
+
+            <h3>Chairperson of CS</h3>
+            <div class="profile-container">
+                <div class="profile-card">
+                    <img src="profile1.jpg" alt="Mujal Allyssa" class="profile-image">
+                    <h2 class="profile-name">Prof. Philip Doctor</h2>
+                </div>
+            </div>
+
+            <h3>Chairperson of Capstone</h3>
+            <div class="profile-container">
+                <div class="profile-card">
+                    <img src="profile1.jpg" alt="Mujal Allyssa" class="profile-image">
+                    <h2 class="profile-name">Prof. Ronel Delos Santos</h2>
+                </div>
+            </div>
+
+            <h3>Thesis Panelists</h3>
+            <div class="profile-container">
+                <div class="profile-card">
+                    <img src="profile1.jpg" alt="Mujal Allyssa" class="profile-image">
+                    <h2 class="profile-name">Prof. Umali Julieta M.</h2>
+                </div>
+                <div class="profile-card">
+                    <img src="profile1.jpg" alt="Mujal Allyssa" class="profile-image">
+                    <h2 class="profile-name">Prof. Anicia Ferrer</h2>
+                </div>
+                <div class="profile-card">
+                    <img src="profile1.jpg" alt="Mujal Allyssa" class="profile-image">
+                    <h2 class="profile-name">Prof. Russel Hipolito</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 A.I.S. All rights reserved.
+    </footer>
+
+    <script>
+        function toggleNav() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

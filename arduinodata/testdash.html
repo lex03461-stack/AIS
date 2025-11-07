@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        #sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            transition: width 0.3s;
+            overflow: hidden;
+        }
+        #sidebar.active {
+            width: 50px;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        #sidebar ul li {
+            padding: 15px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #sidebar ul li:hover {
+            background-color: #34495e;
+        }
+        #content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        #toggle-btn {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+        }
+        .chart {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <ul>
+            <li id="toggle-btn"><i class="fas fa-bars"></i></li>
+            <li>Dashboard</li>
+            <li>Thresholds</li>
+            <li>Reports</li>
+            <li>Users</li>
+            <li>Sign Out</li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Welcome to the Dashboard</h1>
+
+        <div class="chart">
+            <h2>Soil Moisture</h2>
+            <div id="soil-moisture-chart" style="width: 100%; height: 300px;"></div>
+        </div>
+
+        <div class="chart">
+            <h2>Probability</h2>
+            <div id="probability-chart" style="width: 100%; height: 300px;"></div>
+        </div>
+
+        <div class="chart">
+            <h2>Temperature</h2>
+            <div id="temperature-chart" style="width: 100%; height: 300px;"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script>
+        // Soil Moisture Chart
+        am5.ready(function() {
+            var root = am5.Root.new("soil-moisture-chart");
+
+            var chart = root.container.children.push(am5percent.PieChart.new(root, {}));
+
+            var moistureLevel = 70; // Set your desired soil moisture level
+            var dryLevel = 100 - moistureLevel; // Calculate dryness
+
+            var series = chart.series.push(am5percent.PieSeries.new(root, {
+                valueField: "value",
+                categoryField: "category"
+            }));
+
+            series.data.setAll([
+                { category: "Moisture", value: moistureLevel },
+                { category: "Dry", value: dryLevel }
+            ]);
+        });
+
+        // Probability Chart
+        am5.ready(function() {
+            var root = am5.Root.new("probability-chart");
+
+            var chart = root.container.children.push(am5percent.PieChart.new(root, {}));
+
+            var likelinessLevel = 60; // Set your desired likeliness level
+            var unlikelinessLevel = 100 - likelinessLevel; // Calculate unlikeliness
+
+            var series = chart.series.push(am5percent.PieSeries.new(root, {
+                valueField: "value",
+                categoryField: "category"
+            }));
+
+            series.data.setAll([
+                { category: "Likeliness", value: likelinessLevel },
+                { category: "Unlikeliness", value: unlikelinessLevel }
+            ]);
+        });
+
+        // Temperature Chart
+        am5.ready(function() {
+            var root = am5.Root.new("temperature-chart");
+
+            var chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+
+            var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+                categoryField: "time",
+                renderer: am5xy.AxisRendererX.new(root, {})
+            }));
+
+            var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+                renderer: am5xy.AxisRendererY.new(root, {})
+            }));
+
+            var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+                name: "Temperature",
+                xAxis: xAxis,
+                yAxis: yAxis,
+                valueYField: "temperature",
+                categoryXField: "time"
+            }));
+
+            series.data.setAll([
+                { time: "08:00", temperature: 15 },
+                { time: "12:00", temperature: 25 },
+                { time: "16:00", temperature: 20 },
+                { time: "20:00", temperature: 10 }
+            ]);
+        });
+
+        // Handle sidebar toggle
+        document.getElementById('toggle-btn').onclick = function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        };
+    </script>
+</body>
+</html>

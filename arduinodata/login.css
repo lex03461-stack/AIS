@@ -1,0 +1,137 @@
+/* COLOR PALETTE */
+:root {
+    --emerald-pine: #0B5734;
+    --lime-glow: #CEF178;
+    --green-tea: #CDEDB3;
+}
+
+/* --- GLOBAL --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: var(--green-tea);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- GRADIENT HEADER --- */
+header {
+    width: 100%;
+    background: linear-gradient(90deg, var(--emerald-pine), var(--lime-glow));
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* --- LOGIN BOX --- */
+form {
+    background: white;
+    width: 350px;
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* --- TITLE --- */
+h2 {
+    text-align: center;
+    color: var(--emerald-pine);
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+/* --- INPUTS --- */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* --- SUBMIT BUTTON --- */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: var(--emerald-pine);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+input[type="submit"]:hover {
+    background: var(--lime-glow);
+    color: black;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--green-tea);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* LEFT DIAGONAL SHAPE */
+.bg-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    background: var(--lime-glow);
+    transform: skewY(-20deg);
+    transform-origin: top left;
+    z-index: -1;
+}
+
+/* RIGHT DIAGONAL SHAPE */
+.bg-right {
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    background: var(--emerald-pine);
+    transform: skewY(-20deg);
+    transform-origin: bottom right;
+    z-index: -1;
+}
+
+/* Optional rounded corners look */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+/* REGISTER TEXT */
+.register-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-text a {
+    color: var(--emerald-pine);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}

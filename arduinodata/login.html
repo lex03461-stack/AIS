@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <style>
+        
+    </style>
+    <script>
+        window.onload = function() {
+            const message = "<?php echo isset($_SESSION['message']) ? $_SESSION['message'] : ''; ?>"; // Get message from session
+            if (message) {
+                alert(message); // Display message in alert box
+                <?php unset($_SESSION['message']); ?> // Clear message after displaying
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="bg-left"></div>
+    <div class="bg-right"></div>
+
+    <h2>Login</h2>
+    <form action="login.php" method="POST">
+        <label for="id">User ID:</label>
+        <input type="text" id="id" name="id" required> <!-- Changed to ID field -->
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <input type="submit" value="Login">
+
+         <p class="register-text">
+        Don't have an account?
+        <a href="register.php">Register here</a>
+    </p>
+    </form>
+</body>
+</html>
